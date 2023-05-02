@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 
+
 export default function RegistrationForm() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => alert(JSON.stringify(data));
@@ -16,6 +17,7 @@ export default function RegistrationForm() {
     const [govtId, setGovtId] = useState('');
     const [email, setEmail] = useState('');
     const [guard, setGuard] = useState('');
+    
 
 
     //cancel 
@@ -36,11 +38,6 @@ export default function RegistrationForm() {
         setGovtId('');
     }
 
-    //guardian
-    const handleGuardChange = (event) => {
-        setGuard(event.target.value);
-       
-    }
     const handleGovtIdChange = (event) => {
         setGovtId(event.target.value);
 
@@ -56,6 +53,12 @@ export default function RegistrationForm() {
             return;
         }
     }
+    //guardian
+    const handleGuardChange = (event) => {
+        setGuard(event.target.value);
+
+    }
+   
     return (
         <form id="registrationForm" className='form' onSubmit={handleSubmit(onSubmit, handleCancel)}>
             <div className="form-body">
@@ -118,7 +121,7 @@ export default function RegistrationForm() {
                 </div>
                 <div className="email">
                     <label className="form__label" for="email">Email </label>
-                    <input {...register("guard")} className="form__input" placeholder="Enter Email" />
+                    <input {...register("email")} className="form__input" placeholder="Enter Email" />
                 </div>
                 <div className="Emergency">
                     <label className="form__label" for="emergency">Emergency Contact Number </label>
@@ -129,6 +132,22 @@ export default function RegistrationForm() {
                     <label className="form__label" for="address">Address </label>
                     <input {...register("address")} type='text' placeholder="Enter Address" />
                 </div>
+                {/* <div className="state">
+                    <label className="form__label" for="address">State </label>
+                    <select id ="state" class="form__label" required></select>
+                  
+                </div> */}
+                {/* <select id="state" className="form__label" required value={selectedState} onChange={handleStateChange}>
+                    <option value="">Select State</option>
+                    {stateOptions()}
+                </select> */}
+
+
+                {/* <div className="City">
+                    <label className="form__label" for="address">City </label>
+                    <select onchange="print_city('state', this.selectedIndex);" id="sts" name="stt" class="form__label" required></select>
+                </div>
+ */}
 
 
 
